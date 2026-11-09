@@ -1,0 +1,42 @@
+name: Prepare private CMS import
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/cms-evaluation-build.yml]
+permissions:
+  contents: read
+  id-token: write
+concurrency:
+  group: cms-private-import
+  cancel-in-progress: false
+jobs:
+  prepare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Prepare isolated private storage
+        env:
+          BOOTSTRAP: https://pvwktijtqtmvnqofuwro.supabase.co/functions/v1/cms-evaluation-bootstrap/
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request, urllib.error
+          def call(action):
+              identity_url=os.environ['ACTIONS_ID_TOKEN_REQUEST_URL']+'&audience=setsubigiken-cms-evaluation'
+              req=urllib.request.Request(identity_url,headers={'Authorization':'Bearer '+os.environ['ACTIONS_ID_TOKEN_REQUEST_TOKEN']})
+              with urllib.request.urlopen(req,timeout=30) as response:
+                  identity=json.load(response)['value']
+              req=urllib.request.Request(os.environ['BOOTSTRAP']+action,data=b'{}',method='POST',headers={'Authorization':'Bearer '+identity,'Content-Type':'application/json'})
+              try:
+                  with urllib.request.urlopen(req,timeout=120) as response:
+                      result=json.load(response)
+              except urllib.error.HTTPError as error:
+                  raise RuntimeError('Import preparation rejected: HTTP '+str(error.code)) from None
+              print(json.dumps({k:v for k,v in result.items() if k in ('ok','accountReady','signed','remaining')},sort_keys=True))
+              return result
+          call('prepare')
+          for _ in range(100):
+              if call('upload-plan').get('remaining',0)==0:
+                  break
+          else:
+              raise RuntimeError('Manifest did not finish within the bounded preparation loop')
+          PY
