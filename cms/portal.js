@@ -1,6 +1,7 @@
 'use strict';
 const BASE = new URL('./', document.currentScript.src);
 const config = CMS_REVIEW_CONFIG;
+document.querySelector('#publicSiteLink').href = new URL(config.publicSite, BASE).href;
 const password = document.querySelector('#password');
 const loginButton = document.querySelector('#loginBtn');
 const retryButton = document.querySelector('#retryBtn');
