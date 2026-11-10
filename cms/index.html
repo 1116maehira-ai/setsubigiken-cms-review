@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="theme-color" content="#124d80">
+  <title>設備技研｜新採用サイト管理</title>
+  <link rel="stylesheet" href="./portal.css">
+  <script src="./config.js" defer></script>
+  <script src="./routing.js" defer></script>
+  <script src="./portal.js" defer></script>
+</head>
+<body>
+  <header class="header"><div class="header-inner"><span class="brand">設備技研<span>SITE MANAGEMENT</span></span><span class="environment">新採用サイト</span></div></header>
+  <main>
+    <div class="intro"><p class="eyebrow">使い慣れた管理画面で、同じ採用サイトを更新</p><h1>3つのCMSから、<br class="mobile-break">1つの採用サイトへ。</h1><p class="lead">それぞれの操作画面を使って、共通の文章や写真を更新できます。</p></div>
+
+    <section class="login-card" id="login" aria-labelledby="login-title">
+      <div class="section-kicker">関係者専用</div><h2 id="login-title">新採用サイトの管理にログイン</h2>
+      <p class="subtle">お渡しした管理用パスワードを入力してください。</p>
+      <form id="loginForm">
+        <label for="password">管理用パスワード</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required disabled aria-describedby="password-help">
+        <p class="field-help" id="password-help">パスワードは関係者以外に共有しないでください。</p>
+        <button class="primary login-button" id="loginBtn" type="submit" disabled>ログイン</button>
+      </form>
+    </section>
+
+    <section id="ready" hidden aria-labelledby="workspace-title">
+      <div class="section-heading"><div><p class="section-kicker">確認するCMSを選択</p><h2 id="workspace-title" tabindex="-1">各自の操作画面を開く</h2></div><button class="text-button" id="logoutBtn" type="button">ログアウト</button></div>
+      <p class="shared-note">3つのCMSは、同じ新採用サイトにつながっています。又吉さん・宜保さん版は「保存」、平良さん版は「公開」で共通サイトへ反映します。下書きや自動保存は公開されません。</p>
+      <div class="workspace-grid">
+        <article class="workspace-card"><span class="workspace-number" aria-hidden="true">01</span><h3>又吉さん</h3><p>又吉さんが制作したCMS</p><a class="primary" data-app="matayoshi" data-destination="editor" href="./app/matayoshi/cms/index.html">CMSを編集する<span aria-hidden="true">→</span></a><a class="preview-link" data-app="matayoshi" data-destination="site" href="./app/matayoshi/index.html" target="_blank" rel="noopener">共通サイトを確認する<span class="new-tab">別タブ</span></a></article>
+        <article class="workspace-card"><span class="workspace-number" aria-hidden="true">02</span><h3>宜保さん</h3><p>宜保さんが制作したCMS</p><a class="primary" data-app="gibo" data-destination="editor" href="./app/gibo/cms/index.html">CMSを編集する<span aria-hidden="true">→</span></a><a class="preview-link" data-app="gibo" data-destination="site" href="./app/gibo/index.html" target="_blank" rel="noopener">共通サイトを確認する<span class="new-tab">別タブ</span></a></article>
+        <article class="workspace-card"><span class="workspace-number" aria-hidden="true">03</span><h3>平良さん</h3><p>平良さんが制作したCMS</p><a class="primary" data-app="taira" data-destination="editor" href="./app/taira/index.html">CMSを編集する<span aria-hidden="true">→</span></a><a class="preview-link" data-app="taira" data-destination="site" href="./app/taira/index.html?preview=1" target="_blank" rel="noopener">共通サイトを確認する<span class="new-tab">別タブ</span></a></article>
+      </div>
+      <div class="check-guide"><h3>確認の流れ</h3><ol><li><span>1</span>文章・画像を変更</li><li><span>2</span>保存・公開する</li><li><span>3</span>WEB表示を確認</li><li><span>4</span>再読み込みして確認</li></ol><p>応募フォームの実送信は停止しています。公開前の確認は、関係者専用プレビューで行えます。</p></div>
+    </section>
+    <div class="status-area"><p id="message" role="status" aria-live="polite">接続を確認しています…</p><button id="retryBtn" class="text-button" type="button" hidden>接続を再確認</button></div>
+    <noscript><p class="noscript">このCMSを利用するには、ブラウザのJavaScriptを有効にしてください。</p></noscript>
+  </main>
+  <footer>設備技研 · 新採用サイト管理</footer>
+</body>
+</html>
+

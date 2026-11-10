@@ -1,0 +1,41 @@
+:root{
+  --blue:#0754af;
+  --deep:#003b8e;
+  --deep2:#001f62;
+  --cyan:#14a9ef;
+  --pale:#eef8ff;
+  --text:#0a0f18;
+  --card-shadow:0 10px 28px rgba(23,71,123,.10);
+  --content:1220px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--text);
+  font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+  background:#fff;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+.inner{
+  width:min(calc(100% - 40px),var(--content));
+  margin-inline:auto;
+}
+.section-error{
+  padding:20px;
+  background:#fff3f3;
+  border:1px solid #e6bcbc;
+  color:#8c2222;
+}
+@media(max-width:900px){
+  .inner{width:min(calc(100% - 28px),720px)}
+}
+/* ビジュアル編集で削除した画像（空欄）は表示しない */
+img[src=""]{display:none}
+/* 画像の代わりに入れた動画（SECTION 01/03/05/06/08/10/11 のメイン写真） */
+video.cms-media{display:block;max-width:100%}
+/* ビジュアル編集で調整した文字の位置・大きさ・傾き（元のデザインの transform とは別に足される） */
+[data-cms-xf]{translate:var(--cms-tx,0px) var(--cms-ty,0px);scale:var(--cms-sc,1);rotate:var(--cms-rot,0deg)}
+/* スマホ版（画面幅767px以下）だけ別の位置・大きさ・傾きを保存した文字（ビジュアル編集でスマホ版のときに動かしたもの） */
+@media (max-width:767px){[data-cms-xf-m]{--cms-tx:var(--cms-tx-m,0px)!important;--cms-ty:var(--cms-ty-m,0px)!important;--cms-sc:var(--cms-sc-m,1)!important;--cms-rot:var(--cms-rot-m,0deg)!important;display:inline-block}}

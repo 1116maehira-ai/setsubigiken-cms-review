@@ -1,0 +1,184 @@
+.s01-hero{
+  position:relative;
+  min-height:0;
+  overflow:hidden;
+  color:#fff;
+  background:linear-gradient(90deg,#003e94 0%,#004da8 39%,#0075cc 63%,#129ee9 100%);
+}
+.s01-photo{
+  position:absolute;
+  inset:0 0 44px 38%;
+  overflow:hidden;
+  z-index:0;
+}
+.s01-photo::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,rgba(0,74,166,.16),rgba(0,48,120,0));
+  pointer-events:none;
+}
+.s01-photo img,.s01-photo video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  transform:translate(var(--photo-x),var(--photo-y)) scale(var(--photo-zoom));
+  transform-origin:center;
+}
+.s01-shape{
+  position:absolute;
+  z-index:1;
+  left:0;
+  top:0;
+  width:64%;
+  height:calc(100% - 44px);
+  background:linear-gradient(145deg,rgba(0,70,157,.98) 0%,rgba(0,58,145,.97) 63%,rgba(0,76,170,.93) 100%);
+  clip-path:polygon(0 0,72% 0,100% 74%,83% 100%,0 100%);
+}
+.s01-geo{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+}
+.s01-geo::before{
+  content:"";
+  position:absolute;
+  left:14%;
+  top:-150px;
+  width:390px;
+  height:390px;
+  background:linear-gradient(145deg,rgba(0,21,97,.44),rgba(0,115,216,.08));
+  transform:rotate(45deg);
+}
+.s01-inner{
+  position:relative;
+  z-index:5;
+  padding-top:22px;
+  padding-bottom:24px;
+}
+.s01-label{
+  font-weight:800;
+  letter-spacing:.08em;
+  font-size:16px;
+  color:#13b8ff;
+  margin-bottom:14px;
+}
+.s01-copy{
+  width:64%;
+  max-width:800px;
+  transform:translate(var(--title-x),var(--title-y));
+}
+.s01-tag{
+  display:inline-block;
+  margin:0 0 16px;
+  padding:8px 20px 9px;
+  background:linear-gradient(90deg,#006bd5,#197de1);
+  clip-path:polygon(0 0,100% 0,95% 100%,0 100%);
+  font-weight:800;
+  font-size:16px;
+}
+.s01-copy h1{
+  margin:0 0 16px;
+  font-size:clamp(40px,3.5vw,56px);
+  line-height:1.14;
+  letter-spacing:.01em;
+  font-weight:900;
+  max-width:760px;
+}
+.s01-body{
+  font-size:15px;
+  line-height:1.8;
+  font-weight:700;
+  margin:0;
+  max-width:660px;
+}
+.s01-benefits{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  width:66%;
+  margin-top:18px;
+  position:relative;
+  z-index:5;
+  transform:translateY(18px);
+}
+.s01-benefit{
+  min-height:88px;
+  padding:13px 18px;
+  background:#fff;
+  color:#06439b;
+  border-radius:5px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  box-shadow:0 4px 15px rgba(0,0,0,.12);
+}
+.s01-benefit-icon{
+  width:58px;height:58px;
+  display:grid;place-items:center;
+  flex:0 0 auto;
+}
+.s01-benefit-icon img{
+  width:58px;height:58px;object-fit:contain;
+}
+.s01-benefit strong{
+  display:block;
+  font-size:20px;
+  line-height:1.15;
+  white-space:nowrap;
+}
+.s01-benefit span{
+  display:block;
+  margin-top:7px;
+  font-size:13px;
+  font-weight:800;
+}
+.s01-bottom{
+  position:absolute;
+  left:0;right:0;bottom:0;height:44px;
+  background:linear-gradient(90deg,#11a6ea,#007ed8);
+  z-index:2;
+}
+
+@media(max-width:900px){
+  .s01-hero{padding-bottom:66px}
+  .s01-photo{inset:0 0 52px 25%;opacity:.72}
+  .s01-photo img,.s01-photo video{
+    transform:translate(var(--m-photo-x),var(--m-photo-y)) scale(var(--m-photo-zoom));
+    object-position:65% center;
+  }
+  .s01-shape{
+    width:92%;
+    height:calc(100% - 52px);
+    clip-path:polygon(0 0,79% 0,100% 54%,86% 100%,0 100%);
+  }
+  .s01-inner{padding-top:18px}
+  .s01-label{font-size:13px}
+  .s01-tag{font-size:14px;padding:7px 13px}
+  .s01-copy{
+    width:80%;
+    transform:translate(var(--m-title-x),var(--m-title-y));
+  }
+  .s01-copy h1{font-size:clamp(36px,9vw,57px)}
+  .s01-body{font-size:14px}
+  .s01-benefits{
+    width:100%;
+    grid-template-columns:1fr;
+    margin-top:22px;
+    transform:none;
+  }
+  .s01-benefit{min-height:72px}
+}
+@media(max-width:520px){
+  .s01-photo{inset:0 0 52px 10%;opacity:.52}
+  .s01-shape{
+    width:100%;
+    background:linear-gradient(90deg,rgba(0,58,145,.98),rgba(0,64,155,.84));
+    clip-path:none;
+  }
+  .s01-copy{width:100%}
+  .s01-copy h1{font-size:clamp(34px,10.2vw,48px)}
+  .s01-body br{display:none}
+}

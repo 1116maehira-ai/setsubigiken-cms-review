@@ -1,0 +1,20 @@
+
+.s10{position:relative;overflow:hidden;padding:24px 0 44px;background:linear-gradient(180deg,#eefaff 0%,#f7fcff 100%);font-family:"Noto Sans JP","Yu Gothic",sans-serif;color:#0a4da8}
+.s10 *{box-sizing:border-box}.s10 .inner{width:min(100% - 36px,1120px);margin:0 auto}.s10:before{content:"";position:absolute;left:-110px;bottom:-80px;width:420px;height:300px;background:#69c4f5;opacity:.22;clip-path:polygon(0 100%,56% 0,100% 100%)}
+.s10-top{display:grid;grid-template-columns:1fr 46%;gap:28px;align-items:end}.s10-label{font-size:16px;font-weight:900;color:#09a2ed}.s10-banner{display:inline-block;margin-top:10px;padding:10px 22px;background:linear-gradient(90deg,#0b58ba,#087bd8);color:#fff;font-size:22px;font-weight:900;clip-path:polygon(0 0,100% 0,94% 100%,0 100%)}
+.s10 h2{font-size:48px;line-height:1.25;margin:20px 0 0;font-weight:900;letter-spacing:-.03em}.s10-hero{height:225px;overflow:hidden;clip-path:polygon(15% 0,100% 0,100% 100%,0 100%)}.s10-hero img,.s10-hero video{width:100%;height:100%;object-fit:cover;object-position:center}
+.s10-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}.s10-card{display:flex;flex-direction:column;background:#fff;border:1px solid #d4ebf8;border-radius:14px;box-shadow:0 14px 30px rgba(22,88,145,.08);padding:18px 18px 0;overflow:hidden;min-height:390px}.s10-card-head{display:flex;align-items:center;gap:12px;padding-bottom:10px;border-bottom:2px solid #9ed7f6}.s10-card-head img{width:58px;height:58px;object-fit:contain}.s10-card-head h3{font-size:23px;line-height:1.25;margin:0;font-weight:900}.s10-card ul{padding-left:22px;margin:14px 0 12px;color:#0c56b8;font-size:15px;line-height:1.75;font-weight:800;min-height:122px}.s10-card-photo{margin-top:auto;height:150px;margin-left:-18px;margin-right:-18px}.s10-card-photo img{width:100%;height:100%;object-fit:cover;object-position:center}
+.s10-footer{position:relative;margin-top:18px;background:#fff;border:1px solid #d4ebf8;border-radius:14px;box-shadow:0 12px 26px rgba(22,88,145,.07);min-height:100px;display:flex;align-items:center;gap:22px;padding:18px 28px}.s10-footer-icon{width:70px;height:70px;object-fit:contain}.s10-footer-text{font-size:24px;line-height:1.45;font-weight:900;padding-left:24px;border-left:2px solid #0b65cf}.s10-hand{position:absolute;right:16px;bottom:6px;width:240px;height:auto;opacity:.95}
+@media(max-width:760px){.s10{padding:20px 0 36px}.s10-top{grid-template-columns:1fr}.s10 h2{font-size:34px}.s10-hero{height:190px}.s10-cards{grid-template-columns:1fr}.s10-card{min-height:auto}.s10-card ul{min-height:0}.s10-footer{display:grid;grid-template-columns:58px 1fr;padding:14px}.s10-footer-icon{width:58px;height:58px}.s10-footer-text{font-size:18px;padding-left:14px}.s10-hand{position:static;grid-column:1/-1;width:70%;margin-left:auto}}
+/* 枠の追加・削除に対応：1段に3枚まで。3枚に満たない段（4枚目以降の段・2枚以下のとき）は中央にそろえる。枠の大きさは3枚のときと同じ */
+.s10-cards{display:flex;flex-wrap:wrap;justify-content:center}.s10-card{flex:0 0 calc((100% - 36px) / 3);min-width:0}
+@media(max-width:760px){.s10-card{flex-basis:100%}}
+/* 最後の段が2枚：2枚で横幅を分け合う／1枚：横長の枠（アイコン・見出し｜説明文｜写真）。スマホ版は今までどおり縦1列 */
+@media(min-width:761px){
+.s10-card.is-half{flex-basis:calc((100% - 18px) / 2)}.s10-card.is-half .s10-card-photo{height:190px}
+.s10-card.is-wide{flex-basis:100%;display:grid;grid-template-columns:minmax(220px,30%) 1fr 36%;align-items:center;column-gap:28px;padding:0 0 0 28px;min-height:190px}
+.s10-card.is-wide .s10-card-head{border-bottom:0;padding:8px 24px 8px 0;border-right:2px solid #9ed7f6;align-self:center;min-height:96px}
+.s10-card.is-wide ul{margin:18px 0;min-height:0;columns:2;column-gap:28px}
+.s10-card.is-wide li{break-inside:avoid}
+.s10-card.is-wide .s10-card-photo{position:relative;align-self:stretch;height:auto;min-height:190px;margin:0}.s10-card.is-wide .s10-card-photo>img,.s10-card.is-wide .s10-card-photo>video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+}

@@ -1,0 +1,85 @@
+
+.s12{font-family:"Noto Sans JP","Yu Gothic",sans-serif;background:#4daee8;color:#fff;overflow:hidden}
+.s12 *{box-sizing:border-box}.s12 .inner{width:min(100% - 34px,1160px);margin:0 auto}
+.s12-main{display:grid;grid-template-columns:46% 54%;gap:0;position:relative;min-height:470px;background:linear-gradient(135deg,#0751b4 0%,#0866c7 69%,#44aee6 69%,#44aee6 100%);border-left:1px solid rgba(255,255,255,.5);border-right:1px solid rgba(255,255,255,.5)}
+.s12-left{position:relative;padding:22px 22px 86px 44px;overflow:hidden;min-height:470px}
+.s12-left:after{content:"";position:absolute;right:-112px;top:-18px;width:300px;height:520px;background:rgba(255,255,255,.17);transform:skewX(-27deg)}
+.s12-label{position:relative;z-index:3;font-size:14px;font-weight:900;letter-spacing:.07em;color:#5bd0ff}
+.s12-eyebrow{position:relative;z-index:3;font-size:17px;font-weight:800;margin-top:3px;padding-bottom:7px;border-bottom:1px solid rgba(255,255,255,.55);display:inline-block}
+.s12 h2{position:relative;z-index:3;font-size:40px;line-height:1.18;margin:22px 0 16px;font-weight:900;letter-spacing:-.035em;max-width:57%}
+.s12-body{position:relative;z-index:3;font-size:13px;line-height:1.82;font-weight:700;margin:0;width:50%}
+.s12-person{position:absolute;right:-1px;bottom:72px;width:53%;height:auto;z-index:2;filter:drop-shadow(0 14px 20px rgba(0,0,0,.13))}
+.s12-hand{position:absolute;right:44px;top:12px;width:165px;height:auto;z-index:3;transform:rotate(-6deg)}
+.s12-contacts{position:absolute;left:38px;right:12px;bottom:12px;display:grid;grid-template-columns:1.1fr 1.25fr 1.2fr;gap:6px;z-index:4}
+.s12-contact{background:#fff;color:#0a4ea7;border-radius:4px;min-height:58px;display:flex;align-items:center;gap:8px;padding:7px 9px}
+.s12-contact img{width:28px;height:28px;object-fit:contain}.s12-contact strong{display:block;font-size:14px;white-space:nowrap}.s12-contact small{display:block;font-size:8px;line-height:1.3;margin-top:2px;color:#183c66;font-weight:700}
+.s12-form-card{background:#fff;color:#17395f;margin:12px 14px 12px 0;border-radius:10px;padding:15px 18px 14px;box-shadow:0 16px 32px rgba(0,55,120,.16);position:relative;z-index:4}
+.s12-form-head{display:grid;grid-template-columns:46px 1fr 102px;gap:9px;align-items:start}.s12-form-head>img{width:44px;height:44px;object-fit:contain}.s12-form-head h3{margin:0;color:#0a4ea7;font-size:22px;line-height:1.25;font-weight:900}.s12-form-head p{margin:4px 0 0;font-size:10px;line-height:1.45;color:#37536d;font-weight:700}.s12-form-badge{background:#ffe72f;color:#0a4ea7;width:94px;height:94px;border-radius:50%;display:grid;place-items:center;text-align:center;font-size:10px;line-height:1.4;font-weight:900}
+.s12-form{margin-top:5px}.s12-field{display:grid;grid-template-columns:118px 1fr;gap:8px;align-items:center;margin:6px 0}.s12-field>span{font-size:11px;font-weight:800;color:#183c66}.s12-field b{display:inline-block;margin-left:6px;padding:2px 5px;border-radius:2px;background:#ef4a57;color:#fff;font-size:8px}.s12-field input,.s12-field select,.s12-field textarea{width:100%;border:1px solid #c8d7e3;border-radius:4px;padding:8px 10px;font:inherit;font-size:11px;color:#17395f;background:#fff}.s12-message{align-items:start}.s12-field textarea{height:58px;resize:vertical}.s12-submit{margin-top:10px;width:100%;height:52px;border:0;border-radius:5px;background:linear-gradient(90deg,#ff6a16,#ff7f24);color:#fff;display:flex;align-items:center;justify-content:center;gap:9px;font-size:18px;font-weight:900;cursor:pointer;box-shadow:0 8px 18px rgba(255,102,26,.23)}.s12-submit img{width:27px;height:27px;object-fit:contain;filter:brightness(0) invert(1)}.s12-submit em{font-style:normal;font-size:24px}
+.s12-footer{background:#08459d}
+.s12-footer-top{width:min(100% - 34px,1160px);margin:0 auto;display:grid;grid-template-columns:1.4fr .9fr 1.55fr;align-items:center;min-height:110px}
+.s12-brand{display:flex;align-items:center;padding-left:14px}.s12-logo{width:min(100%,430px);height:78px;object-fit:contain;object-position:left center}
+.s12-footer-hand{display:flex;justify-content:center;align-items:center}.s12-footer-hand img{width:250px;max-width:100%;height:auto;display:block}
+.s12-footer-scene{position:relative;height:110px;overflow:hidden}.s12-footer-scene img{width:100%;height:100%;object-fit:cover}.s12-footer-scene:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,59,145,.74),rgba(6,59,145,0) 43%)}.s12-footer-scene div{position:absolute;right:24px;bottom:18px;z-index:2;text-align:left;font-size:11px;line-height:1.45}
+.s12-footer-bottom{border-top:1px solid rgba(255,255,255,.35);width:min(100% - 34px,1160px);margin:0 auto;min-height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 14px}.s12-footer-bottom small{font-size:9px}.s12-footer-bottom nav{display:flex;gap:24px}.s12-footer-bottom a{color:#fff;text-decoration:none;font-size:9px}
+@media(max-width:900px){.s12-main{grid-template-columns:1fr}.s12-left{min-height:520px}.s12-form-card{margin:0 16px 20px}.s12-footer-top{grid-template-columns:1fr 1fr}.s12-footer-scene{grid-column:1/-1}.s12-footer-hand{text-align:center}.s12 h2{max-width:55%}}
+@media(max-width:620px){.s12-left{padding-left:20px;min-height:590px}.s12 h2{font-size:34px;max-width:66%}.s12-body{width:61%;font-size:12px}.s12-person{width:59%;bottom:104px;right:-28px}.s12-hand{width:135px;right:12px}.s12-contacts{left:10px;right:10px;grid-template-columns:1fr;bottom:10px}.s12-contact{min-height:50px}.s12-form-head{grid-template-columns:42px 1fr}.s12-form-badge{position:absolute;right:12px;top:10px;width:80px;height:80px}.s12-form-head>div:nth-child(2){padding-right:75px}.s12-field{grid-template-columns:1fr}.s12-footer-top{grid-template-columns:1fr}.s12-logo{height:70px}.s12-footer-hand{padding:10px}.s12-footer-bottom{display:block;padding:10px 14px}.s12-footer-bottom nav{margin-top:8px;gap:11px;flex-wrap:wrap}}
+/* ---- 2026-10-22 連絡先カードの見切れ対策・住所の表示 ----
+   PC版は左右の比率を 46%:54% → 58%:42% に変更し、右のエントリーフォームを右へ寄せる。
+   左側の見出し・本文・人物写真は、変更前と同じ大きさに見えるよう幅を換算（元の値 × 46/58）。 */
+@media (min-width:901px){
+  .s12-main{grid-template-columns:58% 42%}
+  .s12 h2{max-width:45.2%}
+  .s12-body{width:39.7%}
+  .s12-person{width:42%}
+  .s12-contacts{left:24px}
+}
+/* 連絡先カードは中身の幅で並べ、入りきらない画面幅では2段に折り返す（見切れ防止） */
+@media (min-width:621px){
+  .s12-contacts{display:flex;flex-wrap:wrap;gap:6px}
+  .s12-contact{flex:1 1 auto}
+}
+/* 連絡先の文字は折り返さない（電話番号・メールアドレス・住所が途中で切れないように） */
+.s12-contact strong,.s12-contact small{white-space:nowrap}
+/* 住所カード（「〒」で始まるカード）：郵便番号は小さめ、住所は大きめで1行 */
+.s12-contact--address strong{font-size:11px}
+.s12-contact--address small{font-size:12px;line-height:1.35;margin-top:1px}
+/* 2段に折り返す画面幅（PC版 901〜1199px、中間幅 621〜719px）では、本文・人物写真と重ならないよう下に1段分の余白を足す。
+   実測の切り替わりは 1106px・670px。Windows の文字幅の違いを見込んで少し広めに取っている。 */
+@media (min-width:901px) and (max-width:1199px),(min-width:621px) and (max-width:719px){
+  .s12-left{padding-bottom:150px}
+  .s12-person{bottom:136px}
+}
+/* ---- 2026-10-22 フッターの「New generation of 設備技研」 ----
+   ロゴの横で手書き文字と重なっていたため、手書き文字の枠の中（画像の上）へ移動。
+   PC版・タブレット幅：手書き文字の真上に中央揃え（ロゴは従来の大きさのまま）
+   スマホ版（620px以下）：ロゴを小さめにして、そのすぐ下に左揃え */
+.s12-footer-hand{flex-direction:column;gap:6px}
+.s12-tagline{display:block;font-size:12px;line-height:1.4;letter-spacing:.12em;opacity:.85;text-align:center}
+@media(max-width:620px){
+  .s12-brand-logo{height:72px;width:auto;max-width:100%;object-fit:contain;object-position:left center}
+  .s12-footer-hand{align-items:stretch;padding-top:0}
+  .s12-tagline{text-align:left;padding-left:20px;margin-top:-4px;font-size:11px}
+  .s12-footer-hand img{align-self:center}
+}
+/* ---- 2026-10-24 連絡先の補足を読みやすく・スマホ版の見切れ対策 ----
+   補足（営業時間・定休日など）は、1行ずつ横に並べ、文字を少し大きくする（8px → 11px） */
+.s12-contact .s12-contact-sub{display:flex;flex-wrap:wrap;column-gap:12px;row-gap:0;font-size:11px;line-height:1.35}
+.s12-contact .s12-contact-sub>span{white-space:nowrap}
+.s12-contact .s12-contact-sub:empty{display:none}
+/* 連絡先カードを本文の下に並べる（以前はカードを下に重ねて置いていたため、本文の最後の行が隠れることがあった）。
+   人物写真は右側・連絡先カードのすぐ上に置き、本文と人物の高さの分だけ枠が伸びる。PC版・スマホ版共通 */
+.s12-left{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto auto minmax(0,1fr) auto;align-content:stretch;padding-bottom:14px}
+.s12-left>*{grid-column:1}
+.s12-label{grid-row:1}.s12-eyebrow{grid-row:2;justify-self:start}.s12 h2{grid-row:3}.s12-body{grid-row:4}
+.s12-person{position:relative;grid-row:1/6;align-self:end;justify-self:end;bottom:auto!important;right:auto;margin-right:-23px}
+.s12-contacts{position:relative;grid-row:6;left:auto!important;right:auto;bottom:auto;margin:12px -10px 0 -20px}
+/* 見出しは、改行した位置以外では折り返さない（「る」だけが次の行に落ちないように） */
+.s12 h2{white-space:nowrap}
+@media(max-width:620px){
+  .s12-left{min-height:0;padding-bottom:12px}
+  .s12-person{margin-right:-48px}
+  .s12 h2{font-size:31px}
+  .s12-body{width:66%}
+  .s12-contacts{margin:12px -10px 0}
+}

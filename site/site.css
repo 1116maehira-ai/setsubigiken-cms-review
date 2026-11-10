@@ -1,0 +1,7 @@
+#site-status{max-width:720px;margin:80px auto;padding:24px;color:#164877;font-size:16px;line-height:1.8}
+#site-status[hidden]{display:none}
+.application-paused{margin:0 0 16px;padding:12px 14px;border-radius:8px;background:#edf4fc;color:#164877;font-size:14px;line-height:1.7}
+.s12-form [disabled]{cursor:not-allowed}
+.s12-form button[disabled]{opacity:.65}
+[data-section-mount]{scroll-margin-top:16px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}

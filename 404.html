@@ -1,18 +1,12 @@
-<!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow, noarchive"><meta name="referrer" content="no-referrer"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-mktcwJcNRE1ql1TvDz/JysM/03euikXqqvl2qogHQKk='; style-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'"><title>設備技研｜評価入口を開く</title></head>
-<body class="fallback-page"><main><p class="eyebrow">設備技研 · CMS役員評価</p><h1>評価入口を開いています。</h1><p>自動で移動しない場合は、下のボタンから開いてください。</p><a class="primary" id="home" href="/setsubigiken-cms-review/">評価入口を開く</a></main><script>(() => {
-  const hostedBase = '/setsubigiken-cms-review/';
-  const isLocal = ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
-  const base = isLocal && !location.pathname.startsWith(hostedBase) ? '/' : hostedBase;
-  const home = new URL(base, location.origin);
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-fC9RKw5/PxxmvqghqXONYWYB1QXVWOxlWqON+Cnm/Mc='; base-uri 'none'; form-action 'none'"><title>設備技研｜ページを開く</title></head><body><main><h1>設備技研</h1><p>管理画面は、ログイン後に開けます。</p><a id="home" href="./">入口を開く</a></main><script>(() => {
+  const repo = '/setsubigiken-cms-review/';
+  const base = location.pathname.startsWith(repo) ? repo : '/';
+  const relative = location.pathname.slice(base.length);
+  const area = relative.startsWith('cms/') ? 'cms/' : relative.startsWith('review/') ? 'review/' : '';
+  const home = new URL(base + area, location.origin);
   document.getElementById('home').href = home.href;
-  const styles = document.createElement('link');
-  styles.rel = 'stylesheet'; styles.href = new URL('portal.css', home).href;
-  document.head.appendChild(styles);
-  const prefix = base + 'app/';
-  const parts = location.pathname.startsWith(prefix) ? location.pathname.slice(prefix.length).split('/') : [];
-  if (['matayoshi', 'gibo', 'taira'].includes(parts[0])) {
-    home.searchParams.set('next', location.pathname + location.search);
-    location.replace(home.href);
-  }
+  const inner = relative.slice(area.length);
+  const match = inner.match(/^app\/(matayoshi|gibo|taira)\/[^?#]+\.html$/);
+  if (match) home.searchParams.set('next', location.pathname + location.search);
+  if (match || (area === 'cms/' && inner.startsWith('preview/'))) location.replace(home.href);
 })();</script></body></html>

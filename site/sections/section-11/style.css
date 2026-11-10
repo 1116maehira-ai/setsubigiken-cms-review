@@ -1,0 +1,23 @@
+
+.s11{position:relative;overflow:hidden;background:linear-gradient(180deg,#effaff 0%,#e8f7ff 100%);font-family:"Noto Sans JP","Yu Gothic",sans-serif;color:#084a9d;padding:24px 0 20px}
+.s11 *{box-sizing:border-box}.s11 .inner{width:min(100% - 34px,1160px);margin:0 auto}.s11-inner{position:relative;z-index:2}
+.s11-diagonal{position:absolute;pointer-events:none}.s11-diagonal-a{left:-90px;top:-40px;width:520px;height:230px;background:rgba(255,255,255,.55);clip-path:polygon(0 0,72% 0,100% 100%,28% 100%)}.s11-diagonal-b{left:-140px;bottom:0;width:420px;height:200px;background:rgba(0,155,240,.14);clip-path:polygon(0 100%,38% 0,100% 100%)}
+.s11-hero{display:grid;grid-template-columns:50% 50%;align-items:end;min-height:245px}
+.s11-copy{padding:10px 10px 10px 0}
+.s11-label{font-size:15px;font-weight:900;letter-spacing:.06em;color:#079ee8}
+.s11-eyebrow{font-size:18px;font-weight:900;margin-top:4px}
+.s11 h2{font-size:38px;line-height:1.22;letter-spacing:-.035em;margin:10px 0 10px;color:#06438f;font-weight:900;white-space:normal}
+.s11-lead{margin:0;font-size:17px;font-weight:700;font-style:italic;color:#276db7}
+.s11-hero-visual{position:relative;height:245px;overflow:hidden}
+.s11-hero-img{width:100%;height:100%;object-fit:cover;object-position:center 42%;clip-path:polygon(16% 0,100% 0,100% 100%,0 100%)}
+.s11-points{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:0}.s11-point{background:#fff;border:1px solid #d4e9f8;border-radius:6px;overflow:hidden;box-shadow:0 8px 24px rgba(20,95,158,.07);display:flex;flex-direction:column}.s11-point-top{padding:12px 14px 8px;min-height:90px}.s11-point-num{font-size:11px;font-weight:900;color:#079ee8;letter-spacing:.06em;margin-bottom:2px}.s11-point-title-row{display:grid;grid-template-columns:52px 1fr;gap:10px;align-items:center}.s11-point-title-row img{width:48px;height:48px;object-fit:contain}.s11-point h3{margin:0;font-size:19px;line-height:1.25;color:#084a9d;font-weight:900}.s11-point-photo{height:128px;overflow:hidden}.s11-point-photo img{width:100%;height:100%;object-fit:cover}.s11-point>p{padding:12px 14px 15px;margin:0;font-size:13px;line-height:1.65;font-weight:700;color:#183c66;flex:1}
+.s11-faq-head{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;margin:14px 0 9px}.s11-faq-head h3{margin:0;font-size:30px;color:#084a9d;font-weight:900}.s11-faq-line{height:2px;background:#0b6fd3}.s11-faq-head p{margin:0;font-size:11px;color:#0b6fd3;font-weight:700}
+.s11-faqs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.s11-faq{position:relative;background:#fff;border:1px solid #d9eaf7;border-radius:7px;padding:14px 16px;min-height:160px;overflow:hidden}.s11-qa{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center}.s11-q-badge,.s11-a-badge{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;font-size:20px;background:#0754b6}.s11-a-badge{background:#3f8bd8}.s11-qa strong{font-size:16px;color:#084a9d}.s11-answer{align-items:start;margin-top:9px}.s11-answer p{margin:4px 64px 0 0;font-size:13px;line-height:1.6;font-weight:700;color:#183c66}.s11-answer img{position:absolute;right:11px;bottom:12px;width:52px;height:52px;object-fit:contain;opacity:.72}
+@media(max-width:900px){.s11-hero{grid-template-columns:1fr}.s11-hero-visual{height:230px}.s11 h2{font-size:36px}.s11-points{grid-template-columns:repeat(2,1fr)}.s11-faqs{grid-template-columns:1fr}.s11-faq-head{grid-template-columns:auto 1fr}.s11-faq-head p{grid-column:1/-1}}
+@media(max-width:600px){.s11{padding-top:20px}.s11 h2{font-size:30px;line-height:1.25}.s11-lead{font-size:15px}.s11-hero-visual{height:210px}.s11-points{grid-template-columns:1fr}.s11-point-photo{height:180px}.s11-faq-head h3{font-size:25px}}
+/* POINTの追加・削除に対応：PC版は横12マスのうち --span マス分（index.js で枚数から計算）。4枚のときは今までと同じ幅 */
+@media(min-width:901px){.s11-points{grid-template-columns:repeat(12,minmax(0,1fr))}.s11-point{grid-column:span var(--span,3)}}
+/* 2枚ずつ並ぶ幅で枚数が奇数のときは、最後の1枚を横幅いっぱいにする */
+@media(min-width:601px) and (max-width:900px){.s11-point:last-child:nth-child(odd){grid-column:1/-1}}
+/* よくある質問の追加・削除に対応：PC版は横6マスのうち --span マス分（index.js で数から計算）。3つのときは今までと同じ幅 */
+@media(min-width:901px){.s11-faqs{grid-template-columns:repeat(6,minmax(0,1fr))}.s11-faq{grid-column:span var(--span,2)}}
