@@ -1,6 +1,6 @@
 'use strict';
 /* Only the entrance and this authentication gateway are public.
- * CMS HTML, scripts, images and saved documents are fetched from private storage.
+ * CMS files and data are fetched from private storage or the authenticated API.
  * No private response is written to the Cache API or used as an offline fallback.
  */
 importScripts('./config.js', './routing.js');
@@ -240,13 +240,19 @@ async function serve(request) {
     if (request.headers.has('Range')) headers.set('Range', request.headers.get('Range'));
     const options = { method: request.method, headers };
     let response;
-    if (route.path.startsWith('training-data/media/')) {
-      const mediaPath = route.app + '/' + route.path.slice('training-data/media/'.length);
-      response = await signedFetch(SB + '/storage/v1/object/authenticated/cms-eval-media/' + mediaPath.split('/').map(encodeURIComponent).join('/'), record, options);
-    }
-    if (!response || response.status === 400 || response.status === 404) {
-      const codePath = route.app + '/' + CONFIG.apps[route.app].release + '/' + route.path;
-      response = await signedFetch(SB + '/storage/v1/object/authenticated/cms-eval-code/' + codePath.split('/').map(encodeURIComponent).join('/'), record, options);
+    if (route.app === 'taira' && route.path === 'sections/section-04/index.js') {
+      // One fixed private module; no asset name, query, range or body is forwarded.
+      // HEAD reuses this small authenticated GET and omits its body below.
+      response = await signedFetch(SB + '/functions/v1/cms-evaluation-api/taira/section-04-module', record, { method: 'GET' });
+    } else {
+      if (route.path.startsWith('training-data/media/')) {
+        const mediaPath = route.app + '/' + route.path.slice('training-data/media/'.length);
+        response = await signedFetch(SB + '/storage/v1/object/authenticated/cms-eval-media/' + mediaPath.split('/').map(encodeURIComponent).join('/'), record, options);
+      }
+      if (!response || response.status === 400 || response.status === 404) {
+        const codePath = route.app + '/' + CONFIG.apps[route.app].release + '/' + route.path;
+        response = await signedFetch(SB + '/storage/v1/object/authenticated/cms-eval-code/' + codePath.split('/').map(encodeURIComponent).join('/'), record, options);
+      }
     }
     if (response.status === 401 || response.status === 403) {
       await invalidate(record, response.status);
